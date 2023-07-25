@@ -81,6 +81,4 @@ test:
 #
 production:
   <<: *default
-  database: recruit_connect_backend_production
-  username: recruit_connect_backend
-  password: <%= ENV["RECRUIT_CONNECT_BACKEND_DATABASE_PASSWORD"] %>
+  url: <%= ENV['DATABASE_URL'] %>
