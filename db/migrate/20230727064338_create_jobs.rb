@@ -9,7 +9,9 @@ class CreateJobs < ActiveRecord::Migration[7.0]
       t.string :requirement
       t.datetime :application_deadline
       t.string :experience_level
-      t.integer :salary_range
+      t.integer :salary_highest
+      t.integer :salary_lowest
+
     end
   end
 end
