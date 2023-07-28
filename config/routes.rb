@@ -1,12 +1,11 @@
 Rails.application.routes.draw do
   resources :job_seekers
-
   resources :users
   resources :companies,only: [:index, :show, :create]
-  resources :jobs, only: [:index, :show] do
-    resources :applications,only: [:create]
-    resources :saved_jobs, only: [:create]
-  end
+  resources :jobs,
+  resources :applications,only: [:create]
+  resources :saved_jobs, only: [:create]
+  
 
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
