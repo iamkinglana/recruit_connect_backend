@@ -1,6 +1,7 @@
 class CreateJobs < ActiveRecord::Migration[7.0]
   def change
     create_table :jobs do |t|
+
       t.integer :job_id
       t.belongs_to :employer, null: false, foreign_key: true
       t.string :job_title
@@ -13,7 +14,6 @@ class CreateJobs < ActiveRecord::Migration[7.0]
       t.integer :salary_highest
       t.integer :salary_lowest
       t.datetime :application_deadline
-
     end
   end
 end
