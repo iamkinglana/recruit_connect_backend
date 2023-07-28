@@ -4,12 +4,7 @@ class CreateUsers < ActiveRecord::Migration[7.0]
       t.integer :user_id
       t.string :email
       t.string :password_digest
-      t.string :profile_image
-      t.string :name
-      t.integer :contacts
-      t.string :resume_attachment
-      t.string :job_title
-
+      t.string :role
     end
   end
 end
