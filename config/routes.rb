@@ -1,8 +1,9 @@
 Rails.application.routes.draw do
+
   resources :job_seekers
+  resources :employers,only: [:index, :show, :create]
 
   resources :users
-  resources :companies,only: [:index, :show, :create]
   resources :jobs, only: [:index, :show] do
     resources :applications,only: [:create]
     resources :saved_jobs, only: [:create]
