@@ -88,3 +88,4 @@
 # saved_job2 = SavedJob.create(user_id: job_seeker2.user_id, job_id: job1.id, favoritejob: true)
 
 # puts "Sample data has been successfully seeded."
+# '
