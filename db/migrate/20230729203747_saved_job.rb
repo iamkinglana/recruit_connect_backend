@@ -1,4 +1,4 @@
-class CreateSavedJobs < ActiveRecord::Migration[7.0]
+class SavedJob < ActiveRecord::Migration[7.0]
   def change
     create_table :saved_jobs do |t|
 
