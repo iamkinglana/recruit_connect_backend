@@ -1,4 +1,4 @@
-class CreateJobSeekers < ActiveRecord::Migration[7.0]
+class JobSeeker < ActiveRecord::Migration[7.0]
   def change
     create_table :job_seekers do |t|
       t.string :profile_image
