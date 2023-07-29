@@ -65,7 +65,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_07_29_203747) do
   end
 
   create_table "saved_jobs", force: :cascade do |t|
-    t.boolean "save"
+    t.boolean "favoritejob"
     t.bigint "user_id", null: false
     t.bigint "job_id", null: false
     t.index ["job_id"], name: "index_saved_jobs_on_job_id"
