@@ -42,7 +42,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_07_29_203747) do
   create_table "job_seekers", force: :cascade do |t|
     t.string "profile_image"
     t.string "name"
-    t.integer "contact"
+    t.bigint "contact"
     t.string "resume_attachment"
     t.bigint "user_id", null: false
     t.index ["user_id"], name: "index_job_seekers_on_user_id"
