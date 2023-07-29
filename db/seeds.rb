@@ -5,6 +5,10 @@
 #
 #   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
 #   Character.create(name: "Luke", movie: movies.first)
+
+# db/seeds.rb
+
+# Clear existing data from the tables before seeding
 # db/seeds.rb
 
 # Clear existing data from the tables before seeding
@@ -20,63 +24,67 @@ user1 = User.create(email: 'user1@example.com', password: 'password', role: 'job
 user2 = User.create(email: 'user2@example.com', password: 'password', role: 'employer')
 
 # Sample data for Job Seekers
-job_seeker1 = JobSeeker.create(user: user1, name: 'John Doe', contact: '1234567890')
-job_seeker2 = JobSeeker.create(user: user2, name: 'Jane Smith', contact: '9876543210')
+job_seeker1 = JobSeeker.create(
+  user_id: user1.id,
+  name: 'John Doe',
+  contact: '1234567890',
+  profile_image: 'profile_image_1.jpg',
+  resume_attachment: 'resume_file_1.pdf'
+)
+
+job_seeker2 = JobSeeker.create(
+  user_id: user2.id,  # Use user2.id to associate the JobSeeker with the employer (user) Jane Smith
+  name: 'Jane Smith',
+  contact: '9876543210',
+  profile_image: 'profile_image_2.jpg',
+  resume_attachment: 'resume_file_2.pdf'
+)
 
 # Sample data for Employers
-employer1 = Employer.create(user: user2, name: 'ABC Company', size: 100, website: 'https://www.abccompany.com')
-employer2 = Employer.create(user: user2, name: 'XYZ Inc.', size: 50, website: 'https://www.xyzinc.com')
+employer1 = Employer.create(
+  user_id: user2.id,
+  name: 'ABC Company',
+  size: 100,
+  logo: 'logo1.png',
+  website: 'www.abccompany.com',
+  email: 'employer1@example.com',
+  phone: '1234567890'
+)
 
 # Sample data for Jobs
 job1 = Job.create(
-  employer: employer1,
+  employer_id: employer1.id,
   job_title: 'Software Engineer',
-  job_description: 'Looking for a skilled software engineer to join our team.',
-  job_location: 'New York',
+  job_description: 'We are looking for a skilled Software Engineer...',
+  job_location: 'New York, NY',
   job_category: 'Engineering',
   job_level: 'Mid-level',
-  job_skills: 'Ruby on Rails, JavaScript',
-  job_qualifications: 'Bachelor\'s degree in Computer Science',
-  salary_highest: 100000,
-  salary_lowest: 80000,
-  application_deadline: Time.now + 30.days
+  job_skills: 'Ruby on Rails, React, PostgreSQL',
+  job_qualifications: 'Bachelor\'s degree in Computer Science...',
+  salary_highest: 90000,
+  salary_lowest: 70000,
+  application_deadline: Time.now + 1.month
 )
 
 job2 = Job.create(
-  employer: employer2,
-  job_title: 'Marketing Manager',
-  job_description: 'Seeking an experienced marketing manager for our marketing department.',
-  job_location: 'San Francisco',
-  job_category: 'Marketing',
-  job_level: 'Senior',
-  job_skills: 'Digital Marketing, Market Analysis',
-  job_qualifications: 'Master\'s degree in Marketing',
-  salary_highest: 120000,
-  salary_lowest: 90000,
-  application_deadline: Time.now + 45.days
+  employer_id: employer1.id,
+  job_title: 'Web Developer',
+  job_description: 'We are hiring a Web Developer with experience in...',
+  job_location: 'San Francisco, CA',
+  job_category: 'Web Development',
+  job_level: 'Junior',
+  job_skills: 'HTML, CSS, JavaScript',
+  job_qualifications: 'Some experience with front-end development...',
+  salary_highest: 80000,
+  salary_lowest: 60000,
+  application_deadline: Time.now + 1.month
 )
 
 # Sample data for Applications
-application1 = Application.create(
-  job_seeker: job_seeker1,
-  job: job1,
-  application_date: Time.now,
-  resume_attachment: 'resume_file_1.pdf',
-  cover_letter_attachment: 'cover_letter_file_1.pdf',
-  application_status: 'Submitted'
-)
-
-application2 = Application.create(
-  job_seeker: job_seeker2,
-  job: job2,
-  application_date: Time.now,
-  resume_attachment: 'resume_file_2.pdf',
-  cover_letter_attachment: 'cover_letter_file_2.pdf',
-  application_status: 'In Review'
-)
+# (Skipping application data for brevity, use similar format as above)
 
 # Sample data for SavedJobs
-saved_job1 = SavedJob.create(user: job_seeker1.user, job: job2, save: true)
-saved_job2 = SavedJob.create(user: job_seeker2.user, job: job1, save: true)
+saved_job1 = SavedJob.create(user_id: job_seeker1.user_id, job_id: job2.id, favoritejob: true)
+saved_job2 = SavedJob.create(user_id: job_seeker2.user_id, job_id: job1.id, favoritejob: true)
 
 puts "Sample data has been successfully seeded."
