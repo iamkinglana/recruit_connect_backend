@@ -1,11 +1,10 @@
-class ApplicationController < ActionController::Base
-  protect_from_forgery with: :exception
+class ApplicationController < ActionController::API
+    include ActionController::Cookies
 
-  before_action :authenticate_user!
+|
+	private
 
-  private
-
-  def current_user
+	def current_user
     @current_user ||= User.find_by_id(session[:user_id])
   end
 end

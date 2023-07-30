@@ -25,11 +25,11 @@ class UsersController < ApplicationController
     render json: current_user, status: :accepted
   end
 
-  
+
   private
 
   def user_params
-    params.permit(:name, :username, :password :role)
+    params.permit(:name, :username, :password, :role)
   end
 
   def render_unprocessable_response(invalid)
