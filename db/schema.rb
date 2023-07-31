@@ -63,10 +63,12 @@ ActiveRecord::Schema[7.0].define(version: 2023_07_31_092318) do
   end
 
   create_table "saved_jobs", force: :cascade do |t|
-    t.boolean "favoritejob"
+    t.boolean "saved_job"
     t.bigint "user_id", null: false
     t.bigint "job_id", null: false
+    t.bigint "job_seeker_id", null: false
     t.index ["job_id"], name: "index_saved_jobs_on_job_id"
+    t.index ["job_seeker_id"], name: "index_saved_jobs_on_job_seeker_id"
     t.index ["user_id"], name: "index_saved_jobs_on_user_id"
   end
 
@@ -81,6 +83,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_07_31_092318) do
   add_foreign_key "employers", "users"
   add_foreign_key "job_seekers", "users"
   add_foreign_key "jobs", "employers"
+  add_foreign_key "saved_jobs", "job_seekers"
   add_foreign_key "saved_jobs", "jobs"
   add_foreign_key "saved_jobs", "users"
 end

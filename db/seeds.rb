@@ -84,8 +84,8 @@ job2 = Job.create(
 # (Skipping application data for brevity, use similar format as above)
 
 # Sample data for SavedJobs
-saved_job1 = SavedJob.create(user_id: job_seeker1.user_id, job_id: job2.id, favoritejob: true)
-saved_job2 = SavedJob.create(user_id: job_seeker2.user_id, job_id: job1.id, favoritejob: true)
+saved_job1 = SavedJob.create(job_seeker_id: job_seeker1.id, job_id: job2.id, saved_job: true)
+saved_job2 = SavedJob.create(job_seeker_id: job_seeker2.id, job_id: job1.id, saved_job: true)
 
 puts "Sample data has been successfully seeded."
 
