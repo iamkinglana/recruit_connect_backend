@@ -2,7 +2,6 @@ class Job < ActiveRecord::Migration[7.0]
   def change
     create_table :jobs do |t|
 
-      t.integer :job_id
       t.belongs_to :employer, null: false, foreign_key: true
       t.string :job_title
       t.string :job_description
