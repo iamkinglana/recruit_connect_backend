@@ -15,7 +15,6 @@ ActiveRecord::Schema[7.0].define(version: 2023_07_29_203747) do
   enable_extension "plpgsql"
 
   create_table "applications", force: :cascade do |t|
-    t.integer "application_id"
     t.bigint "job_id", null: false
     t.datetime "application_date"
     t.string "resume_attachment"
@@ -49,7 +48,6 @@ ActiveRecord::Schema[7.0].define(version: 2023_07_29_203747) do
   end
 
   create_table "jobs", force: :cascade do |t|
-    t.integer "job_id"
     t.bigint "employer_id", null: false
     t.string "job_title"
     t.string "job_description"
@@ -73,7 +71,6 @@ ActiveRecord::Schema[7.0].define(version: 2023_07_29_203747) do
   end
 
   create_table "users", force: :cascade do |t|
-    t.integer "user_id"
     t.string "email"
     t.string "password_digest"
     t.string "role"
