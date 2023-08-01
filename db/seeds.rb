@@ -28,7 +28,7 @@ user1 = User.create(
   surname: 'Doe',
   middle_name: 'Kazimbele',
   email: 'user1@example.com',
-  phone: 1234567890,
+  phone: '1234567890',
   password: 'password',
   role: 'job_seeker'
 )
@@ -38,7 +38,7 @@ user2 = User.create(
   surname: 'Smith',
   middle_name: 'Kirigo',
   email: 'user2@example.com',
-  phone: 98765432,
+  phone: '98765432',
   password: 'password',
   role: 'employer'
 )
