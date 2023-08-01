@@ -24,21 +24,17 @@ User.destroy_all
 
 # Sample data for Users
 user1 = User.create(
-  first_name: 'John',
-  surname: 'Doe',
-  middle_name: 'Kazimbele',
+  name: 'John',
+  username: 'Doe',
   email: 'user1@example.com',
-  phone: '1234567890',
   password: 'password',
   role: 'job_seeker'
 )
 
 user2 = User.create(
-  first_name: 'Jane',
-  surname: 'Smith',
-  middle_name: 'Kirigo',
+  name: 'Jane',
+  username: 'Smith',
   email: 'user2@example.com',
-  phone: '98765432',
   password: 'password',
   role: 'employer'
 )
