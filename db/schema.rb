@@ -44,6 +44,8 @@ ActiveRecord::Schema[7.0].define(version: 2023_07_31_092318) do
     t.bigint "contact"
     t.string "resume_attachment"
     t.bigint "user_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.index ["user_id"], name: "index_job_seekers_on_user_id"
   end
 
@@ -73,7 +75,11 @@ ActiveRecord::Schema[7.0].define(version: 2023_07_31_092318) do
   end
 
   create_table "users", force: :cascade do |t|
+    t.string "first_name"
+    t.string "surname"
+    t.string "middle_name"
     t.string "email"
+    t.integer "phone"
     t.string "password_digest"
     t.string "role"
   end

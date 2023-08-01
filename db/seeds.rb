@@ -12,6 +12,9 @@
 # db/seeds.rb
 
 # Clear existing data from the tables before seeding
+# db/seeds.rb
+
+# Clear existing data from the tables before seeding
 Application.destroy_all
 SavedJob.destroy_all
 Job.destroy_all
@@ -20,14 +23,31 @@ JobSeeker.destroy_all
 User.destroy_all
 
 # Sample data for Users
-user1 = User.create(email: 'user1@example.com', password: 'password', role: 'job_seeker')
-user2 = User.create(email: 'user2@example.com', password: 'password', role: 'employer')
+user1 = User.create(
+  first_name: 'John',
+  surname: 'Doe',
+  middle_name: 'Kazimbele',
+  email: 'user1@example.com',
+  phone: 1234567890,
+  password: 'password',
+  role: 'job_seeker'
+)
+
+user2 = User.create(
+  first_name: 'Jane',
+  surname: 'Smith',
+  middle_name: 'Kirigo',
+  email: 'user2@example.com',
+  phone: 98765432,
+  password: 'password',
+  role: 'employer'
+)
 
 # Sample data for Job Seekers
 job_seeker1 = JobSeeker.create(
   user_id: user1.id,
   name: 'John Kazimbele',
-  contact: '1234567890',
+  contact: '12345678',
   profile_image: 'profile_image_1.jpg',
   resume_attachment: 'resume_file_1.pdf'
 )
@@ -35,7 +55,7 @@ job_seeker1 = JobSeeker.create(
 job_seeker2 = JobSeeker.create(
   user_id: user2.id,  # Use user2.id to associate the JobSeeker with the employer (user) Jane Smith
   name: 'Jane Kirigo',
-  contact: '9876543210',
+  contact: '98765432',
   profile_image: 'profile_image_2.jpg',
   resume_attachment: 'resume_file_2.pdf'
 )
@@ -48,7 +68,7 @@ employer1 = Employer.create(
   logo: 'logo1.png',
   website: 'www.abccompany.com',
   email: 'employer1@example.com',
-  phone: '1234567890'
+  phone: '12345678'
 )
 
 # Sample data for Jobs
@@ -88,4 +108,3 @@ saved_job1 = SavedJob.create(job_seeker_id: job_seeker1.id, job_id: job2.id, sav
 saved_job2 = SavedJob.create(job_seeker_id: job_seeker2.id, job_id: job1.id, saved_job: true)
 
 puts "Sample data has been successfully seeded."
-
