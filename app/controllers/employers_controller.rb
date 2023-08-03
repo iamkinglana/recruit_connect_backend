@@ -17,10 +17,31 @@ class EmployersController < ApplicationController
     render json: { message: "Employer successfully deleted" }, status: :ok
   end
 
+  def create
+    employer = Employer.new(employer_params)
+
+    if employer.save
+      render json: employer, status: :created
+    else
+      render json: { errors: employer.errors.full_messages }, status: :unprocessable_entity
+    end
+  end
+
 
   private
 
   def employer_not_found_response
     render json: { error: "Employer not found" }, status: :not_found
+  end
+
+  def employer_params
+    params(
+    :name,
+    :size,
+    :logo,
+    :website,
+    :email,
+    :phone
+    )
   end
 end
